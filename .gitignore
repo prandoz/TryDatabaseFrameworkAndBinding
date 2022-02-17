@@ -1,0 +1,10 @@
+**/packages
+**/.vs
+**/obj
+**/bin
+**/Logs
+*.user
+*.suo
+*.cache
+*.7z
+**/Properties/PublishProfiles
