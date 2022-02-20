@@ -11,7 +11,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\DbContext.Common\TryDatabaseFrameworkAndBinding.Common.csproj" />
+    <ProjectReference Include="..\..\shared\TryDatabaseFrameworkAndBinding.Common\TryDatabaseFrameworkAndBinding.Common.csproj" />
+    <ProjectReference Include="..\TryDatabaseFrameworkAndBinding.Infrastructure\TryDatabaseFrameworkAndBinding.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>

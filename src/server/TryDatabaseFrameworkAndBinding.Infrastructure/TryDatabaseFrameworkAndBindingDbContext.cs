@@ -1,5 +1,0 @@
-﻿namespace TryDatabaseFrameworkAndBinding.Infrastructure;
-
-public class TryDatabaseFrameworkAndBindingTryDatabaseFrameworkAndBinding : TryDatabaseFrameworkAndBinding
-{
-}

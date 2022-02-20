@@ -1,8 +1,11 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using TryDatabaseFrameworkAndBinding.Application.Services;
+using TryDatabaseFrameworkAndBinding.Common.Interfaces.Services;
+using TryDatabaseFrameworkAndBinding.Common.Interfaces.Settings;
+using TryDatabaseFrameworkAndBinding.Infrastructure;
 
 namespace TryDatabaseFrameworkAndBinding.Application;
-public class DependencyInjection
+public static class DependencyInjection
 {
 	public static IServiceCollection AddApplication(this IServiceCollection services, IDatabaseSetting databaseSetting)
 	{

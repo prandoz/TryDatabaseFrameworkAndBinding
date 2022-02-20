@@ -7,7 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\DbContext.Common\TryDatabaseFrameworkAndBinding.Common.csproj" />
+    <ProjectReference Include="..\TryDatabaseFrameworkAndBinding.Common\TryDatabaseFrameworkAndBinding.Common.csproj" />
   </ItemGroup>
 
 </Project>

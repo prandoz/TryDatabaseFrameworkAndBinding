@@ -1,8 +1,8 @@
 ﻿using TryDatabaseFrameworkAndBinding.Common.Interfaces.Entities;
 
-namespace TryDatabaseFrameworkAndBinding.Common.Interfaces.Services;
+namespace TryDatabaseFrameworkAndBinding.Common.Interfaces.Repositories;
 
-public interface ITryDatabaseFrameworkAndBindingService
+public interface ITryDatabaseFrameworkAndBindingEntityFrameworkRepository
 {
 	#region GET
 
@@ -12,12 +12,6 @@ public interface ITryDatabaseFrameworkAndBindingService
 	Task<IEnumerable<IItemDTO>> GetModelWithEntityFrameworkAndLinqkWithouTrackingAsync();
 	Task<IEnumerable<IItemDTO>> GetModelCreatedWithEntityFrameworkAsync();
 	Task<IEnumerable<IItemDTO>> GetModelCreatedWithEntityFrameworkkWithouTrackingAsync();
-	Task<IEnumerable<IItemDTO>> GetModelWithDapperkAsync();
-	Task<IEnumerable<IItemDTO>> GetModelWithDapperkkWithouTrackingAsync();
-	Task<IEnumerable<IItemDTO>> GetDynamicWithDapperAsync();
-	Task<IEnumerable<IItemDTO>> GetDynamicWithDapperkWithouTrackingAsync();
-	Task<IEnumerable<IItemDTO>> GetModelCreatedWithDapperAsync();
-	Task<IEnumerable<IItemDTO>> GetModelCreatedWithDapperkWithouTrackingAsync();
 
 	#endregion GET
 
@@ -26,9 +20,6 @@ public interface ITryDatabaseFrameworkAndBindingService
 	Task InsertModelWithEntityFrameworkAsync(IItemDTO itemDTO);
 	Task InsertModelWithEntityFrameworkAndLinqAsync(IItemDTO itemDTO);
 	Task InsertModelCreatedWithEntityFrameworkAsync(IItemDTO itemDTO);
-	Task InsertModelWithDapperkAsync();
-	Task InsertDynamicWithDapperAsync();
-	Task InsertModelCreatedWithDapperAsync();
 
 	#endregion INSERT
 
@@ -37,9 +28,6 @@ public interface ITryDatabaseFrameworkAndBindingService
 	Task UpdateModelWithEntityFrameworkAsync(IItemDTO itemDTO);
 	Task UpdateModelWithEntityFrameworkAndLinqAsync(IItemDTO itemDTO);
 	Task UpdateModelCreatedWithEntityFrameworkAsync(IItemDTO itemDTO);
-	Task UpdateModelWithDapperkAsync();
-	Task UpdateDynamicWithDapperAsync();
-	Task UpdateModelCreatedWithDapperAsync();
 
 	#endregion UPDATE
 
@@ -48,9 +36,6 @@ public interface ITryDatabaseFrameworkAndBindingService
 	Task DeleteModelWithEntityFrameworkAsync(IItemDTO itemDTO);
 	Task DeleteModelWithEntityFrameworkAndLinqAsync(IItemDTO itemDTO);
 	Task DeleteModelCreatadWithEntityFrameworkAsync(IItemDTO itemDTO);
-	Task DeleteModelWithDapperkAsync();
-	Task DeleteDynamicWithDapperAsync();
-	Task DeleteModelCreatedWithDapperAsync();
 
 	#endregion DELETE
 }

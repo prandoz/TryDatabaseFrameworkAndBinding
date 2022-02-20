@@ -20,8 +20,4 @@
     </PackageReference>
   </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\DbContext.Application\TryDatabaseFrameworkAndBinding.Application.csproj" />
-  </ItemGroup>
-
 </Project>
