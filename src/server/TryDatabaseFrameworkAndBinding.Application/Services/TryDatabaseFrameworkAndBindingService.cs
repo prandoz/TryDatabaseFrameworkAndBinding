@@ -18,85 +18,71 @@ public class TryDatabaseFrameworkAndBindingService : ITryDatabaseFrameworkAndBin
 
 	#region GET
 
-	public Task<IEnumerable<IItemDTO>> GetModelWithEntityFrameworkAsync() => tryDatabaseFrameworkAndBindingEntityFrameworkRepository.GetModelWithEntityFrameworkAsync();
+	public async Task<IEnumerable<IItemDTO>> GetModelWithEntityFrameworkAsync() => await tryDatabaseFrameworkAndBindingEntityFrameworkRepository.GetModelWithEntityFrameworkAsync();
 
-	public Task<IEnumerable<IItemDTO>> GetModelWithEntityFrameworkWithouTrackingAsync() =>
+	public async Task<IEnumerable<IItemDTO>> GetModelWithEntityFrameworkWithouTrackingAsync() => await
 																		tryDatabaseFrameworkAndBindingEntityFrameworkRepository.GetModelWithEntityFrameworkWithouTrackingAsync();
 
-	public Task<IEnumerable<IItemDTO>> GetModelWithEntityFrameworkAndLinqAsync() =>
+	public async Task<IEnumerable<IItemDTO>> GetModelWithEntityFrameworkAndLinqAsync() => await
 																				tryDatabaseFrameworkAndBindingEntityFrameworkRepository.GetModelWithEntityFrameworkAndLinqAsync();
 
-	public Task<IEnumerable<IItemDTO>> GetModelWithEntityFrameworkAndLinqkWithouTrackingAsync() =>
+	public async Task<IEnumerable<IItemDTO>> GetModelWithEntityFrameworkAndLinqkWithouTrackingAsync() => await
 																tryDatabaseFrameworkAndBindingEntityFrameworkRepository.GetModelWithEntityFrameworkAndLinqkWithouTrackingAsync();
 
-	public Task<IEnumerable<IItemDTO>> GetModelCreatedWithEntityFrameworkAsync() =>
-																				tryDatabaseFrameworkAndBindingEntityFrameworkRepository.GetModelCreatedWithEntityFrameworkAsync();
+	public async Task<IEnumerable<IItemDTO>> GetModelWithDapperkAsync() => await tryDatabaseFrameworkAndBindingDapperRepository.GetModelWithDapperkAsync();
 
-	public Task<IEnumerable<IItemDTO>> GetModelCreatedWithEntityFrameworkkWithouTrackingAsync() =>
-																tryDatabaseFrameworkAndBindingEntityFrameworkRepository.GetModelCreatedWithEntityFrameworkkWithouTrackingAsync();
 
-	public Task<IEnumerable<IItemDTO>> GetModelWithDapperkAsync() => tryDatabaseFrameworkAndBindingDapperRepository.GetModelWithDapperkAsync();
-
-	public Task<IEnumerable<IItemDTO>> GetModelWithDapperkkWithouTrackingAsync() => tryDatabaseFrameworkAndBindingDapperRepository.GetModelWithDapperkkWithouTrackingAsync();
-
-	public Task<IEnumerable<IItemDTO>> GetDynamicWithDapperAsync() => tryDatabaseFrameworkAndBindingDapperRepository.GetDynamicWithDapperAsync();
-
-	public Task<IEnumerable<IItemDTO>> GetDynamicWithDapperkWithouTrackingAsync() => tryDatabaseFrameworkAndBindingDapperRepository.GetDynamicWithDapperkWithouTrackingAsync();
-
-	public Task<IEnumerable<IItemDTO>> GetModelCreatedWithDapperAsync() => tryDatabaseFrameworkAndBindingDapperRepository.GetModelCreatedWithDapperAsync();
-
-	public Task<IEnumerable<IItemDTO>> GetModelCreatedWithDapperkWithouTrackingAsync() =>
-																					tryDatabaseFrameworkAndBindingDapperRepository.GetModelCreatedWithDapperkWithouTrackingAsync();
+	public async Task<IEnumerable<dynamic>> GetDynamicWithDapperAsync() => await tryDatabaseFrameworkAndBindingDapperRepository.GetDynamicWithDapperAsync();
 
 	#endregion GET
 
 	#region INSERT
 
-	public Task InsertModelWithEntityFrameworkAsync(IItemDTO itemDTO) => tryDatabaseFrameworkAndBindingEntityFrameworkRepository.InsertModelWithEntityFrameworkAsync(itemDTO);
+	public async Task InsertModelWithEntityFrameworkAsync(IItemDTO itemDTO) =>
+																	await tryDatabaseFrameworkAndBindingEntityFrameworkRepository.InsertModelWithEntityFrameworkAsync(itemDTO);
 
-	public Task InsertModelWithEntityFrameworkAndLinqAsync(IItemDTO itemDTO) =>
-																	tryDatabaseFrameworkAndBindingEntityFrameworkRepository.InsertModelWithEntityFrameworkAndLinqAsync(itemDTO);
+	public async Task InsertModelWithEntityFrameworkAndLinqAsync(IItemDTO itemDTO) =>
+																await tryDatabaseFrameworkAndBindingEntityFrameworkRepository.InsertModelWithEntityFrameworkAndLinqAsync(itemDTO);
 
-	public Task InsertModelCreatedWithEntityFrameworkAsync(IItemDTO itemDTO) =>
-																	tryDatabaseFrameworkAndBindingEntityFrameworkRepository.InsertModelCreatedWithEntityFrameworkAsync(itemDTO);
+	public async Task InsertDynamicWithEntityFrameworkAsync(dynamic dynamic) =>
+																	await tryDatabaseFrameworkAndBindingEntityFrameworkRepository.InsertDynamicWithEntityFrameworkAsync(dynamic);
 
-	public Task InsertModelWithDapperkAsync() => tryDatabaseFrameworkAndBindingDapperRepository.InsertModelWithDapperkAsync();
+	public async Task InsertModelWithDapperkAsync(IItemDTO itemDTO) => await tryDatabaseFrameworkAndBindingDapperRepository.InsertModelWithDapperkAsync(itemDTO);
 
-	public Task InsertDynamicWithDapperAsync() => tryDatabaseFrameworkAndBindingDapperRepository.InsertDynamicWithDapperAsync();
-
-	public Task InsertModelCreatedWithDapperAsync() => tryDatabaseFrameworkAndBindingDapperRepository.InsertModelCreatedWithDapperAsync();
+	public async Task InsertDynamicWithDapperAsync(dynamic dynamic) => await tryDatabaseFrameworkAndBindingDapperRepository.InsertDynamicWithDapperAsync(dynamic);
 
 	#endregion INSERT
 
 	#region UPDATE
 
-	public Task UpdateModelWithEntityFrameworkAsync(IItemDTO itemDTO) => tryDatabaseFrameworkAndBindingEntityFrameworkRepository.UpdateModelWithEntityFrameworkAsync(itemDTO);
+	public async Task UpdateModelWithEntityFrameworkAsync(IItemDTO itemDTO) =>
+																	await tryDatabaseFrameworkAndBindingEntityFrameworkRepository.UpdateModelWithEntityFrameworkAsync(itemDTO);
 
-	public Task UpdateModelWithEntityFrameworkAndLinqAsync(IItemDTO itemDTO) =>
-																	tryDatabaseFrameworkAndBindingEntityFrameworkRepository.UpdateModelWithEntityFrameworkAndLinqAsync(itemDTO);
+	public async Task UpdateModelWithEntityFrameworkAndLinqAsync(IItemDTO itemDTO) =>
+																await tryDatabaseFrameworkAndBindingEntityFrameworkRepository.UpdateModelWithEntityFrameworkAndLinqAsync(itemDTO);
+	public async Task UpdateDynamicWithEntityFrameworkAsync(dynamic dynamic) =>
+																	await tryDatabaseFrameworkAndBindingEntityFrameworkRepository.UpdateDynamicWithEntityFrameworkAsync(dynamic);
 
-	public Task UpdateModelCreatedWithEntityFrameworkAsync(IItemDTO itemDTO) =>
-																	tryDatabaseFrameworkAndBindingEntityFrameworkRepository.UpdateModelCreatedWithEntityFrameworkAsync(itemDTO);
+	public async Task UpdateModelWithDapperkAsync(IItemDTO itemDTO) => await tryDatabaseFrameworkAndBindingDapperRepository.UpdateModelWithDapperkAsync(itemDTO);
 
-	public Task UpdateModelWithDapperkAsync() => tryDatabaseFrameworkAndBindingDapperRepository.UpdateModelWithDapperkAsync();
-
-	public Task UpdateDynamicWithDapperAsync() => tryDatabaseFrameworkAndBindingDapperRepository.UpdateDynamicWithDapperAsync();
-
-	public Task UpdateModelCreatedWithDapperAsync() => tryDatabaseFrameworkAndBindingDapperRepository.UpdateModelCreatedWithDapperAsync();
+	public async Task UpdateDynamicWithDapperAsync(dynamic dynamic) => await tryDatabaseFrameworkAndBindingDapperRepository.UpdateDynamicWithDapperAsync(dynamic);
 
 	#endregion UPDATE
 
 	#region DELETE
 
-	public Task DeleteModelWithEntityFrameworkAsync(IItemDTO itemDTO) => tryDatabaseFrameworkAndBindingEntityFrameworkRepository.DeleteModelWithEntityFrameworkAsync(itemDTO);
+	public async Task DeleteModelWithEntityFrameworkAsync(IItemDTO itemDTO) =>
+																	await tryDatabaseFrameworkAndBindingEntityFrameworkRepository.DeleteModelWithEntityFrameworkAsync(itemDTO);
 
-	public Task DeleteModelWithEntityFrameworkAndLinqAsync(IItemDTO itemDTO) =>
-																tryDatabaseFrameworkAndBindingEntityFrameworkRepository.DeleteModelWithEntityFrameworkAndLinqAsync(itemDTO);
-	public Task DeleteModelCreatadWithEntityFrameworkAsync(IItemDTO itemDTO) =>
-																tryDatabaseFrameworkAndBindingEntityFrameworkRepository.DeleteModelCreatadWithEntityFrameworkAsync(itemDTO);
-	public Task DeleteModelWithDapperkAsync() => tryDatabaseFrameworkAndBindingDapperRepository.DeleteModelWithDapperkAsync();
-	public Task DeleteDynamicWithDapperAsync() => tryDatabaseFrameworkAndBindingDapperRepository.DeleteDynamicWithDapperAsync();
-	public Task DeleteModelCreatedWithDapperAsync() => tryDatabaseFrameworkAndBindingDapperRepository.DeleteModelCreatedWithDapperAsync();
+	public async Task DeleteModelWithEntityFrameworkAndLinqAsync(IItemDTO itemDTO) =>
+																await tryDatabaseFrameworkAndBindingEntityFrameworkRepository.DeleteModelWithEntityFrameworkAndLinqAsync(itemDTO);
+
+	public async Task DeleteDynamicWithEntityFrameworkAsync(dynamic dynamic) =>
+																	await tryDatabaseFrameworkAndBindingEntityFrameworkRepository.DeleteDynamicWithEntityFrameworkAsync(dynamic);
+
+	public async Task DeleteModelWithDapperkAsync(IItemDTO itemDTO) => await tryDatabaseFrameworkAndBindingDapperRepository.DeleteModelWithDapperkAsync(itemDTO);
+
+	public async Task DeleteDynamicWithDapperAsync(dynamic dynamic) => await tryDatabaseFrameworkAndBindingDapperRepository.DeleteDynamicWithDapperAsync(dynamic);
 
 	#endregion DELETE
 }

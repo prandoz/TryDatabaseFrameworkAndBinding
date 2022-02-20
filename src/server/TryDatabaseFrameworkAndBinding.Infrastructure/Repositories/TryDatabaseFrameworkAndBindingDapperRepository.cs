@@ -1,59 +1,46 @@
-﻿using TryDatabaseFrameworkAndBinding.Common.Interfaces.Entities;
+﻿using System.Data;
+using Dapper;
+using TryDatabaseFrameworkAndBinding.Common.Interfaces.Entities;
 using TryDatabaseFrameworkAndBinding.Common.Interfaces.Repositories;
+using TryDatabaseFrameworkAndBinding.Infrastructure.Entities;
 
 namespace TryDatabaseFrameworkAndBinding.Infrastructure.Repositories;
 
 public class TryDatabaseFrameworkAndBindingDapperRepository : ITryDatabaseFrameworkAndBindingDapperRepository
 {
+	private readonly IDbConnection databaseConnection;
+
+	public TryDatabaseFrameworkAndBindingDapperRepository(TryDatabaseFrameworkAndBindingDapperDatabaseContext tryDatabaseFrameworkAndBindingDapperDatabaseContext)
+	{
+		this.databaseConnection = tryDatabaseFrameworkAndBindingDapperDatabaseContext.CreateConnection();
+	}
+
 	#region GET
 
-	public Task<IEnumerable<IItemDTO>> GetModelWithDapperkAsync() => throw new NotImplementedException();
-	public Task<IEnumerable<IItemDTO>> GetModelWithDapperkkWithouTrackingAsync() => throw new NotImplementedException();
-	public Task<IEnumerable<IItemDTO>> GetDynamicWithDapperAsync() => throw new NotImplementedException();
-	public Task<IEnumerable<IItemDTO>> GetDynamicWithDapperkWithouTrackingAsync() => throw new NotImplementedException();
-	public Task<IEnumerable<IItemDTO>> GetModelCreatedWithDapperAsync() => throw new NotImplementedException();
-	public Task<IEnumerable<IItemDTO>> GetModelCreatedWithDapperkWithouTrackingAsync() => throw new NotImplementedException();
+	public async Task<IEnumerable<IItemDTO>> GetModelWithDapperkAsync() => await databaseConnection.QueryAsync<Item>(new Item().GetSqlSelect());
+	public async Task<IEnumerable<dynamic>> GetDynamicWithDapperAsync() => await databaseConnection.QueryAsync<dynamic>(new Item().GetSqlSelect());
 
 	#endregion GET
 
 	#region INSERT
 
-	public Task InsertModelWithDapperkAsync() => throw new NotImplementedException();
-	public Task InsertDynamicWithDapperAsync() => throw new NotImplementedException();
-	public Task InsertModelCreatedWithDapperAsync() => throw new NotImplementedException();
+	public async Task InsertModelWithDapperkAsync(IItemDTO itemDTO) => await databaseConnection.ExecuteAsync(new Item().GetSqlInsert(itemDTO));
+	public async Task InsertDynamicWithDapperAsync(dynamic dynamic) => await databaseConnection.ExecuteAsync((string)new Item().GetDynamicSqlInsert(dynamic));
 
 	#endregion INSERT
 
 	#region UPDATE
 
-	public Task UpdateModelWithDapperkAsync() => throw new NotImplementedException();
-	public Task UpdateDynamicWithDapperAsync() => throw new NotImplementedException();
-	public Task UpdateModelCreatedWithDapperAsync() => throw new NotImplementedException();
+	public async Task UpdateModelWithDapperkAsync(IItemDTO itemDTO) => await databaseConnection.ExecuteAsync(new Item().GetSqlUpdate(itemDTO));
+	public async Task UpdateDynamicWithDapperAsync(dynamic dynamic) => await databaseConnection.ExecuteAsync((string)new Item().GetDynamicSqlUpdate(dynamic));
 
 	#endregion UPDATE
 
-	#region UPDATE BULK
-
-	public Task UpdateBulkModelWithDapperkAsync() => throw new NotImplementedException();
-	public Task UpdateBulkDynamicWithDapperAsync() => throw new NotImplementedException();
-	public Task UpdateBulkModelCreatedWithDapperAsync() => throw new NotImplementedException();
-
-	#endregion UPDATE BULK
-
 	#region DELETE
 
-	public Task DeleteModelWithDapperkAsync() => throw new NotImplementedException();
-	public Task DeleteDynamicWithDapperAsync() => throw new NotImplementedException();
-	public Task DeleteModelCreatedWithDapperAsync() => throw new NotImplementedException();
+	public async Task DeleteModelWithDapperkAsync(IItemDTO itemDTO) => await databaseConnection.ExecuteAsync(new Item().GetSqlDelete(itemDTO));
+	public async Task DeleteDynamicWithDapperAsync(dynamic dynamic) => await databaseConnection.ExecuteAsync((string)new Item().GetDynamicSqlDelete(dynamic));
 
 	#endregion DELETE
-
-	#region DELETE BULK
-
-	public Task DeleteBulkModelWithDapperkAsync() => throw new NotImplementedException();
-	public Task DeleteBulkDynamicWithDapperAsync() => throw new NotImplementedException();
-	public Task DeleteBulkModelCreatedWithDapperAsync() => throw new NotImplementedException();
-
-	#endregion DELETE BUlK
 }
 

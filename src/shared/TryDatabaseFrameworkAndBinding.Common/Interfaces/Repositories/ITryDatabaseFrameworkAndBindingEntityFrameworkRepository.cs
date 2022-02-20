@@ -10,8 +10,6 @@ public interface ITryDatabaseFrameworkAndBindingEntityFrameworkRepository
 	Task<IEnumerable<IItemDTO>> GetModelWithEntityFrameworkWithouTrackingAsync();
 	Task<IEnumerable<IItemDTO>> GetModelWithEntityFrameworkAndLinqAsync();
 	Task<IEnumerable<IItemDTO>> GetModelWithEntityFrameworkAndLinqkWithouTrackingAsync();
-	Task<IEnumerable<IItemDTO>> GetModelCreatedWithEntityFrameworkAsync();
-	Task<IEnumerable<IItemDTO>> GetModelCreatedWithEntityFrameworkkWithouTrackingAsync();
 
 	#endregion GET
 
@@ -19,7 +17,7 @@ public interface ITryDatabaseFrameworkAndBindingEntityFrameworkRepository
 
 	Task InsertModelWithEntityFrameworkAsync(IItemDTO itemDTO);
 	Task InsertModelWithEntityFrameworkAndLinqAsync(IItemDTO itemDTO);
-	Task InsertModelCreatedWithEntityFrameworkAsync(IItemDTO itemDTO);
+	Task InsertDynamicWithEntityFrameworkAsync(dynamic dynamic);
 
 	#endregion INSERT
 
@@ -27,7 +25,7 @@ public interface ITryDatabaseFrameworkAndBindingEntityFrameworkRepository
 
 	Task UpdateModelWithEntityFrameworkAsync(IItemDTO itemDTO);
 	Task UpdateModelWithEntityFrameworkAndLinqAsync(IItemDTO itemDTO);
-	Task UpdateModelCreatedWithEntityFrameworkAsync(IItemDTO itemDTO);
+	Task UpdateDynamicWithEntityFrameworkAsync(dynamic dynamic);
 
 	#endregion UPDATE
 
@@ -35,7 +33,7 @@ public interface ITryDatabaseFrameworkAndBindingEntityFrameworkRepository
 
 	Task DeleteModelWithEntityFrameworkAsync(IItemDTO itemDTO);
 	Task DeleteModelWithEntityFrameworkAndLinqAsync(IItemDTO itemDTO);
-	Task DeleteModelCreatadWithEntityFrameworkAsync(IItemDTO itemDTO);
+	Task DeleteDynamicWithEntityFrameworkAsync(dynamic dynamic);
 
 	#endregion DELETE
 }

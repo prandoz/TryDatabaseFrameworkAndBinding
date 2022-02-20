@@ -18,19 +18,15 @@ public class TryDatabaseFrameworkAndBindingEntityFrameworkRepository : ITryDatab
 	#region GET
 
 	public async Task<IEnumerable<IItemDTO>> GetModelWithEntityFrameworkAsync() =>
-											await tryDatabaseFrameworkAndBindingEntityFrameworkDatabaseContext.Set<ItemDTO>().FromSqlRaw(new Item().GetSqlSelect()).ToListAsync();
+											await tryDatabaseFrameworkAndBindingEntityFrameworkDatabaseContext.Set<Item>().FromSqlRaw(new Item().GetSqlSelect()).ToListAsync();
 
 	public async Task<IEnumerable<IItemDTO>> GetModelWithEntityFrameworkWithouTrackingAsync() =>
-							await tryDatabaseFrameworkAndBindingEntityFrameworkDatabaseContext.Set<ItemDTO>().FromSqlRaw(new Item().GetSqlSelect()).AsNoTracking().ToListAsync();
+							await tryDatabaseFrameworkAndBindingEntityFrameworkDatabaseContext.Set<Item>().FromSqlRaw(new Item().GetSqlSelect()).AsNoTracking().ToListAsync();
 
-	public async Task<IEnumerable<IItemDTO>> GetModelWithEntityFrameworkAndLinqAsync() =>
-							await tryDatabaseFrameworkAndBindingEntityFrameworkDatabaseContext.Item.Select(i => new ItemDTO { DateInsert = i.DateInsert }).ToListAsync();
+	public async Task<IEnumerable<IItemDTO>> GetModelWithEntityFrameworkAndLinqAsync() => await tryDatabaseFrameworkAndBindingEntityFrameworkDatabaseContext.Item.ToListAsync();
 
 	public async Task<IEnumerable<IItemDTO>> GetModelWithEntityFrameworkAndLinqkWithouTrackingAsync() =>
 			await tryDatabaseFrameworkAndBindingEntityFrameworkDatabaseContext.Item.Select(i => new ItemDTO { DateInsert = i.DateInsert }).AsNoTracking().ToListAsync();
-
-	public Task<IEnumerable<IItemDTO>> GetModelCreatedWithEntityFrameworkAsync() => throw new NotImplementedException();
-	public Task<IEnumerable<IItemDTO>> GetModelCreatedWithEntityFrameworkkWithouTrackingAsync() => throw new NotImplementedException();
 
 	#endregion GET
 
@@ -45,7 +41,8 @@ public class TryDatabaseFrameworkAndBindingEntityFrameworkRepository : ITryDatab
 		await tryDatabaseFrameworkAndBindingEntityFrameworkDatabaseContext.SaveChangesAsync();
 	}
 
-	public Task InsertModelCreatedWithEntityFrameworkAsync(IItemDTO itemDTO) => throw new NotImplementedException();
+	public async Task InsertDynamicWithEntityFrameworkAsync(dynamic dynamic) =>
+		await tryDatabaseFrameworkAndBindingEntityFrameworkDatabaseContext.Database.ExecuteSqlRawAsync((string)new Item().GetDynamicSqlInsert(dynamic));
 
 	#endregion INSERT
 
@@ -60,7 +57,8 @@ public class TryDatabaseFrameworkAndBindingEntityFrameworkRepository : ITryDatab
 		await tryDatabaseFrameworkAndBindingEntityFrameworkDatabaseContext.SaveChangesAsync();
 	}
 
-	public Task UpdateModelCreatedWithEntityFrameworkAsync(IItemDTO itemDTO) => throw new NotImplementedException();
+	public async Task UpdateDynamicWithEntityFrameworkAsync(dynamic dynamic) =>
+									await tryDatabaseFrameworkAndBindingEntityFrameworkDatabaseContext.Database.ExecuteSqlRawAsync((string)new Item().GetDynamicSqlUpdate(dynamic));
 
 	#endregion UPDATE
 
@@ -74,8 +72,8 @@ public class TryDatabaseFrameworkAndBindingEntityFrameworkRepository : ITryDatab
 		tryDatabaseFrameworkAndBindingEntityFrameworkDatabaseContext.Entry(new Item().FromDto(itemDTO)).State = EntityState.Deleted;
 		await tryDatabaseFrameworkAndBindingEntityFrameworkDatabaseContext.SaveChangesAsync();
 	}
-
-	public Task DeleteModelCreatadWithEntityFrameworkAsync(IItemDTO itemDTO) => throw new NotImplementedException();
+	public async Task DeleteDynamicWithEntityFrameworkAsync(dynamic dynamic) =>
+									await tryDatabaseFrameworkAndBindingEntityFrameworkDatabaseContext.Database.ExecuteSqlRawAsync((string)new Item().GetDynamicSqlDelete(dynamic));
 
 	#endregion DELETE
 }

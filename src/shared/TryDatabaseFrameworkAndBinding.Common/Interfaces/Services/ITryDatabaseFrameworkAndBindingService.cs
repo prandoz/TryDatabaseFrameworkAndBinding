@@ -10,14 +10,8 @@ public interface ITryDatabaseFrameworkAndBindingService
 	Task<IEnumerable<IItemDTO>> GetModelWithEntityFrameworkWithouTrackingAsync();
 	Task<IEnumerable<IItemDTO>> GetModelWithEntityFrameworkAndLinqAsync();
 	Task<IEnumerable<IItemDTO>> GetModelWithEntityFrameworkAndLinqkWithouTrackingAsync();
-	Task<IEnumerable<IItemDTO>> GetModelCreatedWithEntityFrameworkAsync();
-	Task<IEnumerable<IItemDTO>> GetModelCreatedWithEntityFrameworkkWithouTrackingAsync();
 	Task<IEnumerable<IItemDTO>> GetModelWithDapperkAsync();
-	Task<IEnumerable<IItemDTO>> GetModelWithDapperkkWithouTrackingAsync();
-	Task<IEnumerable<IItemDTO>> GetDynamicWithDapperAsync();
-	Task<IEnumerable<IItemDTO>> GetDynamicWithDapperkWithouTrackingAsync();
-	Task<IEnumerable<IItemDTO>> GetModelCreatedWithDapperAsync();
-	Task<IEnumerable<IItemDTO>> GetModelCreatedWithDapperkWithouTrackingAsync();
+	Task<IEnumerable<dynamic>> GetDynamicWithDapperAsync();
 
 	#endregion GET
 
@@ -25,10 +19,9 @@ public interface ITryDatabaseFrameworkAndBindingService
 
 	Task InsertModelWithEntityFrameworkAsync(IItemDTO itemDTO);
 	Task InsertModelWithEntityFrameworkAndLinqAsync(IItemDTO itemDTO);
-	Task InsertModelCreatedWithEntityFrameworkAsync(IItemDTO itemDTO);
-	Task InsertModelWithDapperkAsync();
-	Task InsertDynamicWithDapperAsync();
-	Task InsertModelCreatedWithDapperAsync();
+	Task InsertDynamicWithEntityFrameworkAsync(dynamic dynamic);
+	Task InsertModelWithDapperkAsync(IItemDTO itemDTO);
+	Task InsertDynamicWithDapperAsync(dynamic dynamic);
 
 	#endregion INSERT
 
@@ -36,10 +29,9 @@ public interface ITryDatabaseFrameworkAndBindingService
 
 	Task UpdateModelWithEntityFrameworkAsync(IItemDTO itemDTO);
 	Task UpdateModelWithEntityFrameworkAndLinqAsync(IItemDTO itemDTO);
-	Task UpdateModelCreatedWithEntityFrameworkAsync(IItemDTO itemDTO);
-	Task UpdateModelWithDapperkAsync();
-	Task UpdateDynamicWithDapperAsync();
-	Task UpdateModelCreatedWithDapperAsync();
+	Task UpdateDynamicWithEntityFrameworkAsync(dynamic dynamic);
+	Task UpdateModelWithDapperkAsync(IItemDTO itemDTO);
+	Task UpdateDynamicWithDapperAsync(dynamic dynamic);
 
 	#endregion UPDATE
 
@@ -47,10 +39,9 @@ public interface ITryDatabaseFrameworkAndBindingService
 
 	Task DeleteModelWithEntityFrameworkAsync(IItemDTO itemDTO);
 	Task DeleteModelWithEntityFrameworkAndLinqAsync(IItemDTO itemDTO);
-	Task DeleteModelCreatadWithEntityFrameworkAsync(IItemDTO itemDTO);
-	Task DeleteModelWithDapperkAsync();
-	Task DeleteDynamicWithDapperAsync();
-	Task DeleteModelCreatedWithDapperAsync();
+	Task DeleteDynamicWithEntityFrameworkAsync(dynamic dynamic);
+	Task DeleteModelWithDapperkAsync(IItemDTO itemDTO);
+	Task DeleteDynamicWithDapperAsync(dynamic dynamic);
 
 	#endregion DELETE
 }

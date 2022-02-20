@@ -7,51 +7,28 @@ public interface ITryDatabaseFrameworkAndBindingDapperRepository
 	#region GET
 
 	Task<IEnumerable<IItemDTO>> GetModelWithDapperkAsync();
-	Task<IEnumerable<IItemDTO>> GetModelWithDapperkkWithouTrackingAsync();
-	Task<IEnumerable<IItemDTO>> GetDynamicWithDapperAsync();
-	Task<IEnumerable<IItemDTO>> GetDynamicWithDapperkWithouTrackingAsync();
-	Task<IEnumerable<IItemDTO>> GetModelCreatedWithDapperAsync();
-	Task<IEnumerable<IItemDTO>> GetModelCreatedWithDapperkWithouTrackingAsync();
+	Task<IEnumerable<dynamic>> GetDynamicWithDapperAsync();
 
 	#endregion GET
 
 	#region INSERT
 
-	Task InsertModelWithDapperkAsync();
-	Task InsertDynamicWithDapperAsync();
-	Task InsertModelCreatedWithDapperAsync();
+	Task InsertModelWithDapperkAsync(IItemDTO itemDTO);
+	Task InsertDynamicWithDapperAsync(dynamic dynamic);
 
 	#endregion INSERT
 
 	#region UPDATE
 
-	Task UpdateModelWithDapperkAsync();
-	Task UpdateDynamicWithDapperAsync();
-	Task UpdateModelCreatedWithDapperAsync();
+	Task UpdateModelWithDapperkAsync(IItemDTO itemDTO);
+	Task UpdateDynamicWithDapperAsync(dynamic dynamic);
 
 	#endregion UPDATE
 
-	#region UPDATE BULK
-
-	Task UpdateBulkModelWithDapperkAsync();
-	Task UpdateBulkDynamicWithDapperAsync();
-	Task UpdateBulkModelCreatedWithDapperAsync();
-
-	#endregion UPDATE BULK
-
 	#region DELETE
 
-	Task DeleteModelWithDapperkAsync();
-	Task DeleteDynamicWithDapperAsync();
-	Task DeleteModelCreatedWithDapperAsync();
+	Task DeleteModelWithDapperkAsync(IItemDTO itemDTO);
+	Task DeleteDynamicWithDapperAsync(dynamic dynamic);
 
 	#endregion DELETE
-
-	#region DELETE BULK
-
-	Task DeleteBulkModelWithDapperkAsync();
-	Task DeleteBulkDynamicWithDapperAsync();
-	Task DeleteBulkModelCreatedWithDapperAsync();
-
-	#endregion DELETE BUlK
 }

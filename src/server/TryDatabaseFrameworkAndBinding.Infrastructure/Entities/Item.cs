@@ -1,4 +1,5 @@
 ﻿using TryDatabaseFrameworkAndBinding.Common.Interfaces.Entities;
+
 namespace TryDatabaseFrameworkAndBinding.Infrastructure.Entities;
 public class Item : IItemDTO
 {
@@ -125,6 +126,28 @@ public class Item : IItemDTO
 																	{itemDTO.NumberCode1IndexDesignReview}, {itemDTO.IDVatType}, {itemDTO.IDItemType}, {itemDTO.ResourceSignImage},
 																	{itemDTO.ResourceSignJson}, {itemDTO.IDBrand}, {itemDTO.MinimumProvisioningQuantity}, {itemDTO.idMaker},
 																	{itemDTO.WooCommerce_ID})";
+
+	internal string GetDynamicSqlInsert(dynamic dynamic) => $@"	INSERT INTO Items (	IDInsertUser, DateInsert, IDModifyUser, DateUpdate, NumberCode1, NumberCode2, IDSociety,
+																					Reserved, SafetyStock, IDCategory, UnitOfMeasure, SecondUnityOfMeasure, Kit,
+																					ManifacturingLeadtime, IDMachineModel, IDFamily, Weight, Note, Package, Design, DesignReview,
+																					HSCode, IDPackaging, QuantityForPackaging, NumberCode3, Description1, Description2,
+																					Description3, OriginalWeight, Height, Width, Depth, UniversalProductCode, IDDefaultBom,
+																					NumberCode1Index, NumberCode1IndexDesignReview, IDVatType, IDItemType, ResourceSignImage,
+																					ResourceSignJson, IDBrand, MinimumProvisioningQuantity, idMaker, WooCommerce_ID)
+																VALUES ({dynamic["IDInsertUser"]}, {dynamic["DateInsert"]}, {dynamic["IDModifyUser"]}, {dynamic["DateUpdate"]},
+																		{dynamic["NumberCode1"]}, {dynamic["NumberCode2"]}, {dynamic["IDSociety"]}, {dynamic["Reserved"]},
+																		{dynamic["SafetyStock"]}, {dynamic["IDCategory"]}, {dynamic["UnitOfMeasure"]}, 
+																		{dynamic["SecondUnityOfMeasure"]}, {dynamic["Kit"]}, {dynamic["ManifacturingLeadtime"]}, 
+																		{dynamic["IDMachineModel"]}, {dynamic["IDFamily"]}, {dynamic["Weight"]}, {dynamic["Note"]},
+																		{dynamic["Package"]}, {dynamic["Design"]}, {dynamic["DesignReview"]}, {dynamic["HSCode"]},
+																		{dynamic["IDPackaging"]}, {dynamic["QuantityForPackaging"]}, {dynamic["NumberCode3"]}, 
+																		{dynamic["Description1"]}, {dynamic["Description2"]}, {dynamic["Description3"]}, {dynamic["OriginalWeight"]},
+																		{dynamic["Height"]}, {dynamic["Width"]}, {dynamic["Depth"]}, {dynamic["UniversalProductCode"]},
+																		{dynamic["IDDefaultBom"]}, {dynamic["NumberCode1Index"]}, {dynamic["NumberCode1IndexDesignReview"]},
+																		{dynamic["IDVatType"]}, {dynamic["IDItemType"]}, {dynamic["ResourceSignImage"]}, {dynamic["ResourceSignJson"]},
+																		{dynamic["IDBrand"]}, {dynamic["MinimumProvisioningQuantity"]}, {dynamic["idMaker"]},
+																		{dynamic["WooCommerce_ID"]})";
+
 	internal string GetSqlUpdate(IItemDTO itemDTO) => $@"	UPDATE Items
 															SET IDInsertUser = {itemDTO.IDInsertUser}, DateInsert = {itemDTO.DateInsert}, IDModifyUser = {itemDTO.IDModifyUser},
 																DateUpdate = {itemDTO.DateUpdate}, NumberCode1 = {itemDTO.NumberCode1}, NumberCode2 = {itemDTO.NumberCode2},
@@ -146,5 +169,31 @@ public class Item : IItemDTO
 																WooCommerce_ID = {itemDTO.WooCommerce_ID}
 															WHERE ID = {itemDTO.ID}";
 
-	internal string GetSqlDelete(IItemDTO itemDTO) => $"DELETE Items WHERE ID = {itemDTO.ID}";
+	internal string GetDynamicSqlUpdate(dynamic dynamic) => $@"	UPDATE Items
+																SET IDInsertUser = {dynamic["IDInsertUser"]}, DateInsert = {dynamic["DateInsert"]},
+																	IDModifyUser = {dynamic["IDModifyUser"]}, DateUpdate = {dynamic["DateUpdate"]},
+																	NumberCode1 = {dynamic["NumberCode1"]}, NumberCode2 = {dynamic["NumberCode2"]},
+																	IDSociety = {dynamic["IDSociety"]}, Reserved = {dynamic["Reserved"]}, SafetyStock = {dynamic["SafetyStock"]},
+																	IDCategory = {dynamic["IDCategory"]}, UnitOfMeasure = {dynamic["UnitOfMeasure"]},
+																	SecondUnityOfMeasure = {dynamic["SecondUnityOfMeasure"]}, Kit = {dynamic["Kit"]},
+																	ManifacturingLeadtime = {dynamic["ManifacturingLeadtime"]}, IDMachineModel = {dynamic["IDMachineModel"]},
+																	IDFamily = {dynamic["IDFamily"]}, Weight = {dynamic["Weight"]}, Note = {dynamic["Note"]},
+																	Package = {dynamic["Package"]}, Design = {dynamic["Design"]}, DesignReview = {dynamic["DesignReview"]},
+																	HSCode = {dynamic["HSCode"]}, IDPackaging = {dynamic["IDPackaging"]},
+																	QuantityForPackaging = {dynamic["QuantityForPackaging"]}, NumberCode3 = {dynamic["NumberCode3"]},
+																	Description1 = {dynamic["Description1"]}, Description2 = {dynamic["Description2"]},
+																	Description3 = {dynamic["Description3"]}, OriginalWeight = {dynamic["OriginalWeight"]},
+																	Height = {dynamic["Height"]}, Width = {dynamic["Width"]}, Depth = {dynamic["Depth"]},
+																	UniversalProductCode = {dynamic["UniversalProductCode"]}, IDDefaultBom = {dynamic["IDDefaultBom"]},
+																	NumberCode1Index = {dynamic["NumberCode1Index"]}, 
+																	NumberCode1IndexDesignReview = {dynamic["NumberCode1IndexDesignReview"]}, IDVatType = {dynamic["IDVatType"]},
+																	IDItemType = {dynamic["IDItemType"]}, ResourceSignImage = {dynamic["ResourceSignImage"]},
+																	ResourceSignJson = {dynamic["ResourceSignJson"]}, IDBrand = {dynamic["IDBrand"]},
+																	MinimumProvisioningQuantity = {dynamic["MinimumProvisioningQuantity"]}, idMaker = {dynamic["idMaker"]},
+																	WooCommerce_ID = {dynamic["WooCommerce_ID"]}
+																WHERE ID = {dynamic["ID}"]}";
+
+	internal string GetSqlDelete(IItemDTO itemDTO) => $"DELETE Items WHERE ID = { itemDTO.ID }";
+
+	internal string GetDynamicSqlDelete(dynamic dynamic) => $"DELETE Items WHERE ID = {dynamic["ID"]}";
 }

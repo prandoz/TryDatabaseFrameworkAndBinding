@@ -12,6 +12,8 @@ public static class DependencyInjection
 		services.AddDbContext<TryDatabaseFrameworkAndBindingEntityFrameworkDatabaseContext>(options => options.UseSqlServer(databaseSetting.connectionString));
 		services.AddScoped<ITryDatabaseFrameworkAndBindingEntityFrameworkRepository, TryDatabaseFrameworkAndBindingEntityFrameworkRepository>();
 
+		services.AddScoped<TryDatabaseFrameworkAndBindingDapperDatabaseContext>();
+
 		return services;
 	}
 }
