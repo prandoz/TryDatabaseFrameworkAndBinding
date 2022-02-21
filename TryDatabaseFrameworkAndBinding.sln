@@ -14,15 +14,15 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "shared", "shared", "{5CA036
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{0B77D83E-42C6-4076-A237-F6E0670C62CE}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TryDatabaseFrameworkAndBinding.Application", "server\TryDatabaseFrameworkAndBinding.Application\TryDatabaseFrameworkAndBinding.Application.csproj", "{0D6DC9CE-F0A9-40A6-AA4D-C4FE5938AECC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TryDatabaseFrameworkAndBinding.Application", "src\server\TryDatabaseFrameworkAndBinding.Application\TryDatabaseFrameworkAndBinding.Application.csproj", "{0D6DC9CE-F0A9-40A6-AA4D-C4FE5938AECC}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TryDatabaseFrameworkAndBinding.Infrastructure", "server\TryDatabaseFrameworkAndBinding.Infrastructure\TryDatabaseFrameworkAndBinding.Infrastructure.csproj", "{54EECC5D-4666-4BCA-8CF4-CC299D8E5CB1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TryDatabaseFrameworkAndBinding.Infrastructure", "src\server\TryDatabaseFrameworkAndBinding.Infrastructure\TryDatabaseFrameworkAndBinding.Infrastructure.csproj", "{54EECC5D-4666-4BCA-8CF4-CC299D8E5CB1}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TryDatabaseFrameworkAndBinding.Common", "shared\TryDatabaseFrameworkAndBinding.Common\TryDatabaseFrameworkAndBinding.Common.csproj", "{04A40FCC-05FC-4862-B926-F8DBA0D9E673}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TryDatabaseFrameworkAndBinding.Common", "src\shared\TryDatabaseFrameworkAndBinding.Common\TryDatabaseFrameworkAndBinding.Common.csproj", "{04A40FCC-05FC-4862-B926-F8DBA0D9E673}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TryDatabaseFrameworkAndBinding.Domain", "shared\TryDatabaseFrameworkAndBinding.Domain\TryDatabaseFrameworkAndBinding.Domain.csproj", "{85D7D7E4-E95A-4CE4-9F88-A92C7E1C08D5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TryDatabaseFrameworkAndBinding.Domain", "src\shared\TryDatabaseFrameworkAndBinding.Domain\TryDatabaseFrameworkAndBinding.Domain.csproj", "{85D7D7E4-E95A-4CE4-9F88-A92C7E1C08D5}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TryDatabaseFrameworkAndBinding-UnitTest", "test\TryDatabaseFrameworkAndBinding.UnitTest\TryDatabaseFrameworkAndBinding-UnitTest.csproj", "{7FC4CA1B-124F-4FC3-A54A-B77014F57515}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TryDatabaseFrameworkAndBinding.UnitTest", "src\test\TryDatabaseFrameworkAndBinding.UnitTest\TryDatabaseFrameworkAndBinding.UnitTest.csproj", "{7FC4CA1B-124F-4FC3-A54A-B77014F57515}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
